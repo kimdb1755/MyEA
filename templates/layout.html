@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>Database Monitoring System</title>
+
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+</head>
+<body>
+<div class="navbar-wrapper">
+    <div class=" container">
+        <nav class="navbar-default navbar-fixed-top">
+            <div class="mycontainer" style="padding-left: 0px;padding-left: 0px;padding-right: 0px;">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    </button>
+                    <a class="navbar-brand" href="/">Database Monitoring</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">서버정보
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/serverinfo/info">서버리스트</a></li>
+                                <li><a href="/serverinfo/resource">리소스관리</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DB정보
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/mysql/mysqlwatcherscreen">DB서버리스트</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/mysqlmha/info">Error Log</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/mysqlmha/info">Slow Query Log</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">백업관리
+                                <span class="caret"></span>
+                            </a>
+			</li>
+
+			<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MySQL사용 지표관리
+                                <span class="caret"></span>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" style="margin-right:0px">
+                        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" style="margin-right:0px">
+                        <li><a>{{ connid }}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="mycontainer" style="font-size:12px;padding-top: 50px;padding-left: 0px;padding-right: 0px;">
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>
